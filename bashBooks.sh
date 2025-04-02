@@ -33,7 +33,7 @@ select opt in "${options[@]}"; do
            # enter the title we want to delete and save it to $deletedTitle
            read -p "Enter title: " deletedTitle
            # using grep to see if the title is listed in the file 
-           if grep "$deletedTitle" "books.txt"; then
+           if grep "$deletedTitle" "books.txt" ; then
              #if it is, use sed to delete the whole line containing the title
              sed -i "" "/$deletedTitle/d" ./books.txt
              echo "$deletedTitle removed"
@@ -58,11 +58,8 @@ select opt in "${options[@]}"; do
       break
       ;;
     # handling invalid (non numeric) input in menu
-    "")
-      echo "Invalid selection. Please try again."
-      ;;
     *)
-      echo "Invalid option: $REPLY. Please try again."
+      echo "Invalid selection. Please try again."
       ;;
   esac
 done
